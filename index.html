@@ -135,29 +135,87 @@
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem 1.5rem;
       max-width: 1100px; margin: 0 auto;
     }
     .menu-card {
-      background: #fffaf5;
-      border-radius: 16px;
-      padding: 1.6rem;
-      display: flex; align-items: center; justify-content: space-between;
+      background: #ffffff;
+      border: 1px solid #f2e2d5;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       opacity: 0; transform: translateY(20px);
       animation: fadeUp 0.5s ease forwards;
     }
-    .menu-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-    .menu-card .icon { font-size: 2rem; margin-right: 1rem; }
-    .menu-card .info { flex: 1; }
-    .menu-card .info h4 { font-size: 1.05rem; color: #333; text-transform: capitalize; }
-    .menu-card .info .cat { font-size: 0.78rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
-    .menu-card .price {
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(211,84,0,0.15);
+    }
+    .menu-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+      background: #f8eee4;
+    }
+    .menu-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .menu-card:hover .menu-img-wrap img {
+      transform: scale(1.08);
+    }
+    .menu-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
+      color: #d35400;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 0.28rem 0.75rem;
+      border-radius: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .menu-info {
+      padding: 1.2rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .menu-info-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .menu-info h4 {
+      font-size: 1.1rem;
+      color: #2c1810;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+    .menu-info .price {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 700;
       color: #e74c3c;
       white-space: nowrap;
+    }
+    .menu-info .desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.45;
     }
 
     /* stagger animation */
@@ -393,81 +451,214 @@
     <div class="menu-grid" id="menuGrid">
       <!-- Beverages -->
       <div class="menu-card" data-cat="beverages">
-        <div class="icon">☕</div>
-        <div class="info"><h4>Tea</h4><span class="cat">Beverage</span></div>
-        <div class="price">₹15</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500" alt="Tea" loading="lazy" />
+          <span class="menu-badge">Beverage</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Tea</h4>
+            <div class="price">₹15</div>
+          </div>
+          <p class="desc">Freshly brewed aromatic spiced milk tea prepared with cardamom and ginger.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="beverages">
-        <div class="icon">☕</div>
-        <div class="info"><h4>Hot Coffee</h4><span class="cat">Beverage</span></div>
-        <div class="price">₹25</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" alt="Hot Coffee" loading="lazy" />
+          <span class="menu-badge">Beverage</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Hot Coffee</h4>
+            <div class="price">₹25</div>
+          </div>
+          <p class="desc">Rich, smooth, and steaming hot coffee brewed with finest roasted beans.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="beverages">
-        <div class="icon">🧊</div>
-        <div class="info"><h4>Cold Coffee</h4><span class="cat">Beverage</span></div>
-        <div class="price">₹49</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=500" alt="Cold Coffee" loading="lazy" />
+          <span class="menu-badge">Beverage</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Cold Coffee</h4>
+            <div class="price">₹49</div>
+          </div>
+          <p class="desc">Chilled and frothy blended coffee drizzled with rich chocolate syrup.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="beverages">
-        <div class="icon">🥭</div>
-        <div class="info"><h4>Mango Shake</h4><span class="cat">Beverage</span></div>
-        <div class="price">₹75</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=500" alt="Mango Shake" loading="lazy" />
+          <span class="menu-badge">Beverage</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Mango Shake</h4>
+            <div class="price">₹75</div>
+          </div>
+          <p class="desc">Thick, delicious milkshake blended with sweet Alphonso mango pulp.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="beverages">
-        <div class="icon">🍹</div>
-        <div class="info"><h4>Papaya Shake</h4><span class="cat">Beverage</span></div>
-        <div class="price">₹70</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500" alt="Papaya Shake" loading="lazy" />
+          <span class="menu-badge">Beverage</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Papaya Shake</h4>
+            <div class="price">₹70</div>
+          </div>
+          <p class="desc">Healthy and refreshing tropical shake packed with natural vitamins.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="beverages">
-        <div class="icon">🍫</div>
-        <div class="info"><h4>KitKat Shake</h4><span class="cat">Beverage</span></div>
-        <div class="price">₹80</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500" alt="KitKat Shake" loading="lazy" />
+          <span class="menu-badge">Beverage</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>KitKat Shake</h4>
+            <div class="price">₹80</div>
+          </div>
+          <p class="desc">Indulgent chocolate shake blended with crunchy pieces of real KitKat.</p>
+        </div>
       </div>
 
       <!-- Snacks -->
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🥟</div>
-        <div class="info"><h4>Samosa</h4><span class="cat">Snack</span></div>
-        <div class="price">₹20</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500" alt="Samosa" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Samosa</h4>
+            <div class="price">₹20</div>
+          </div>
+          <p class="desc">Crispy golden crust filled with savory spiced potatoes, peas, and herbs.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🥟</div>
-        <div class="info"><h4>Kachori</h4><span class="cat">Snack</span></div>
-        <div class="price">₹20</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=500" alt="Kachori" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Kachori</h4>
+            <div class="price">₹20</div>
+          </div>
+          <p class="desc">Traditional deep-fried flaky pastry filled with a zesty spiced dal mix.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🥧</div>
-        <div class="info"><h4>Patties</h4><span class="cat">Snack</span></div>
-        <div class="price">₹25</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=500" alt="Patties" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Patties</h4>
+            <div class="price">₹25</div>
+          </div>
+          <p class="desc">Freshly baked multi-layered crispy puff pastry stuffed with spiced masala.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🍟</div>
-        <div class="info"><h4>Fries</h4><span class="cat">Snack</span></div>
-        <div class="price">₹60</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500" alt="Fries" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Fries</h4>
+            <div class="price">₹60</div>
+          </div>
+          <p class="desc">Golden, crisp potato french fries tossed with classic sea salt and seasoning.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🍔</div>
-        <div class="info"><h4>Burger</h4><span class="cat">Snack</span></div>
-        <div class="price">₹40</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Burger" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Burger</h4>
+            <div class="price">₹40</div>
+          </div>
+          <p class="desc">Soft toasted bun with crisp vegetable patty, fresh veggies, and tangy sauce.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🧀</div>
-        <div class="info"><h4>Cheese Burger</h4><span class="cat">Snack</span></div>
-        <div class="price">₹50</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Cheese Burger" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Cheese Burger</h4>
+            <div class="price">₹50</div>
+          </div>
+          <p class="desc">Savory grilled patty loaded with a rich melting cheese slice and secret spread.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🍕</div>
-        <div class="info"><h4>Pizza</h4><span class="cat">Snack</span></div>
-        <div class="price">₹119</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500" alt="Pizza" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Pizza</h4>
+            <div class="price">₹119</div>
+          </div>
+          <p class="desc">Classic hand-stretched crust topped with tangy herb sauce and gooey mozzarella.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🍕</div>
-        <div class="info"><h4>OTC Pizza</h4><span class="cat">Snack</span></div>
-        <div class="price">₹150</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="OTC Pizza" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>OTC Pizza</h4>
+            <div class="price">₹150</div>
+          </div>
+          <p class="desc">Loaded with fresh Onion, juicy Tomato, and crunchy Capsicum with cheese.</p>
+        </div>
       </div>
+
       <div class="menu-card" data-cat="snacks">
-        <div class="icon">🍕</div>
-        <div class="info"><h4>Cheese Burst Pizza</h4><span class="cat">Snack</span></div>
-        <div class="price">₹170</div>
+        <div class="menu-img-wrap">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500" alt="Cheese Burst Pizza" loading="lazy" />
+          <span class="menu-badge">Snack</span>
+        </div>
+        <div class="menu-info">
+          <div class="menu-info-top">
+            <h4>Cheese Burst Pizza</h4>
+            <div class="price">₹170</div>
+          </div>
+          <p class="desc">Crust loaded with molten, creamy liquid cheese that bursts with every single bite.</p>
+        </div>
       </div>
     </div>
   </section>
